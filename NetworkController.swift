@@ -25,6 +25,12 @@ class NetworkController {
     
     init() {
         self.configuration = NSURLSessionConfiguration.defaultSessionConfiguration()
+        // assign the saved OAuthToken to myToken
+        if let oAuthToken = NSUserDefaults.standardUserDefaults().valueForKey("Mykey") as? String {
+            self.myToken = oAuthToken
+            self.configuration.HTTPAdditionalHeaders = ["Authorization":"token \(self.myToken!)"]
+            self.mySession = NSURLSession(configuration: self.configuration)
+        }
     }
     
     // take the user out of the app and send them to github
@@ -46,6 +52,7 @@ class NetworkController {
         //constructing the query string for the final POST call
         let urlQuery = clientID + "&" + clientSecret + "&" + "code=\(code!)"
         println("urlQuery:"+urlQuery)
+        //Mutable??? request
         var request = NSMutableURLRequest(URL: NSURL(string:githubPOSTURL))
         request.HTTPMethod = "POST"
         //turn string to data
@@ -74,8 +81,8 @@ class NetworkController {
                         
                         println(token)
                         
-                        //self.configuration.HTTPAdditionalHeaders = ["Authorization":"token \(token)"]
-                        //self.mySession = NSURLSession(configuration: self.configuration)
+                        self.configuration.HTTPAdditionalHeaders = ["Authorization":"token \(token)"]
+                        self.mySession = NSURLSession(configuration: self.configuration)
                         NSUserDefaults.standardUserDefaults().setObject("\(token)", forKey: "Mykey")
                         NSUserDefaults.standardUserDefaults().synchronize()
                         
