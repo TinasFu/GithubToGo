@@ -47,6 +47,7 @@ class RepositoryViewController: UIViewController, UITableViewDataSource , UISear
         self.networkController.searchRepos(searchString, repoHandler: { (errorDescription, repos) -> (Void) in
             if errorDescription != nil {
                 //alert user something went wrong
+                println(errorDescription);
             } else {
                 self.repos = repos
                 self.tableView.reloadData()

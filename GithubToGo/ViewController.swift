@@ -18,7 +18,15 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
         self.networkController = appDelegate.networkController
-        self.networkController.requestOAuthAcess()
+        if (self.networkController.myToken == nil) {
+            
+            dispatch_after(1, dispatch_get_main_queue(), {
+                self.networkController.requestOAuthAccess()
+            })            
+        }
+        
+        self.networkController.configuration.HTTPAdditionalHeaders = ["Authorization":"token \(self.networkController.myToken!)"]
+        self.networkController.mySession = NSURLSession(configuration: self.networkController.configuration)
         // Do any additional setup after loading the view, typically from a nib.
     }
 

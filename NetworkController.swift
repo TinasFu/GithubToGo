@@ -28,7 +28,7 @@ class NetworkController {
     }
     
     // take the user out of the app and send them to github
-    func requestOAuthAcess() {
+    func requestOAuthAccess() {
         
         //construct the correct URL
         let url = githubOAuthURL + clientID + "&" + redirectURL + "&" + scope
@@ -74,8 +74,8 @@ class NetworkController {
                         
                         println(token)
                         
-                        self.configuration.HTTPAdditionalHeaders = ["Authorization":"token \(token)"]
-                        self.mySession = NSURLSession(configuration: self.configuration)
+                        //self.configuration.HTTPAdditionalHeaders = ["Authorization":"token \(token)"]
+                        //self.mySession = NSURLSession(configuration: self.configuration)
                         NSUserDefaults.standardUserDefaults().setObject("\(token)", forKey: "Mykey")
                         NSUserDefaults.standardUserDefaults().synchronize()
                         
@@ -107,6 +107,7 @@ class NetworkController {
                     
                 case 400...499:
                     println("This is the clients fault.")
+                    println(error?.description);
                     repoHandler(errorDescription: "This is your fault", repos: nil)
                 case 500...599:
                     println("This is the servers fault.")

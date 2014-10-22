@@ -30,6 +30,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //println(url)
         //passing the url github passed back to us to our network controller. This url contains the request token in step 4 of the oauth workflow
         self.networkController.handleOAuthURL(url)
+
         return true
     }
     
