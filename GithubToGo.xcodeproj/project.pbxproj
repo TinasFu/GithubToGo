@@ -18,6 +18,9 @@
 		920053EC19F5A8F3009093F9 /* RepositoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 920053EB19F5A8F3009093F9 /* RepositoryViewController.swift */; };
 		920053EE19F5AAFA009093F9 /* NetworkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 920053ED19F5AAFA009093F9 /* NetworkController.swift */; };
 		920053F019F5B2DD009093F9 /* Repo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 920053EF19F5B2DD009093F9 /* Repo.swift */; };
+		926018B619F8419200A9DF54 /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926018B519F8419200A9DF54 /* UserViewController.swift */; };
+		926018B819F843D000A9DF54 /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926018B719F843D000A9DF54 /* UserCell.swift */; };
+		926018BA19F84B7C00A9DF54 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926018B919F84B7C00A9DF54 /* User.swift */; };
 		92669DED19F5BF120010C5DE /* RepoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92669DEC19F5BF120010C5DE /* RepoCell.swift */; };
 		92669DF319F5C3710010C5DE /* RepoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92669DF219F5C3710010C5DE /* RepoCell.xib */; };
 /* End PBXBuildFile section */
@@ -48,6 +51,9 @@
 		920053EB19F5A8F3009093F9 /* RepositoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepositoryViewController.swift; sourceTree = "<group>"; };
 		920053ED19F5AAFA009093F9 /* NetworkController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkController.swift; sourceTree = "<group>"; };
 		920053EF19F5B2DD009093F9 /* Repo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Repo.swift; sourceTree = "<group>"; };
+		926018B519F8419200A9DF54 /* UserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
+		926018B719F843D000A9DF54 /* UserCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
+		926018B919F84B7C00A9DF54 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		92669DEC19F5BF120010C5DE /* RepoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepoCell.swift; sourceTree = "<group>"; };
 		92669DF219F5C3710010C5DE /* RepoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = RepoCell.xib; path = ../RepoCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -134,6 +140,7 @@
 			isa = PBXGroup;
 			children = (
 				920053EF19F5B2DD009093F9 /* Repo.swift */,
+				926018B919F84B7C00A9DF54 /* User.swift */,
 			);
 			name = "Model Layer";
 			path = ..;
@@ -143,6 +150,7 @@
 			isa = PBXGroup;
 			children = (
 				92669DEC19F5BF120010C5DE /* RepoCell.swift */,
+				926018B719F843D000A9DF54 /* UserCell.swift */,
 			);
 			name = "View Layer";
 			path = ..;
@@ -152,9 +160,10 @@
 			isa = PBXGroup;
 			children = (
 				920053C719F56BCE009093F9 /* ViewController.swift */,
-				920053EB19F5A8F3009093F9 /* RepositoryViewController.swift */,
 				920053E519F56FEF009093F9 /* SplitContainerViewController.swift */,
 				920053ED19F5AAFA009093F9 /* NetworkController.swift */,
+				920053EB19F5A8F3009093F9 /* RepositoryViewController.swift */,
+				926018B519F8419200A9DF54 /* UserViewController.swift */,
 			);
 			name = "Controller Layer";
 			path = ..;
@@ -262,13 +271,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				920053F019F5B2DD009093F9 /* Repo.swift in Sources */,
+				926018B619F8419200A9DF54 /* UserViewController.swift in Sources */,
 				920053C819F56BCE009093F9 /* ViewController.swift in Sources */,
 				920053C319F56BCE009093F9 /* AppDelegate.swift in Sources */,
 				920053EE19F5AAFA009093F9 /* NetworkController.swift in Sources */,
 				920053C619F56BCE009093F9 /* GithubToGo.xcdatamodeld in Sources */,
 				920053E619F56FEF009093F9 /* SplitContainerViewController.swift in Sources */,
 				920053EC19F5A8F3009093F9 /* RepositoryViewController.swift in Sources */,
+				926018B819F843D000A9DF54 /* UserCell.swift in Sources */,
 				92669DED19F5BF120010C5DE /* RepoCell.swift in Sources */,
+				926018BA19F84B7C00A9DF54 /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
