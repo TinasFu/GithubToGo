@@ -9,7 +9,7 @@
 import UIKit
 
 
-class RepositoryViewController: UIViewController, UITableViewDataSource {
+class RepositoryViewController: UIViewController, UITableViewDataSource , UISearchBarDelegate {
 
     var networkController : NetworkController!
     var repos : [Repo]?
@@ -24,20 +24,38 @@ class RepositoryViewController: UIViewController, UITableViewDataSource {
         self.tableView.registerNib(UINib(nibName: "RepoCell", bundle: NSBundle.mainBundle()), forCellReuseIdentifier: "REPO_CELL")
         let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
         self.networkController = appDelegate.networkController
-        self.networkController.fetchRepos { (errorDescription, repos) -> (Void) in
-            if errorDescription != nil {
-                //alert the user that something went wrong
-            } else {
-                self.repos = repos
-                self.tableView.reloadData()
-            }
-
-        }
+        
+        
+        
+        
+//        self.networkController.fetchRepos { (errorDescription, repos) -> (Void) in
+//            if errorDescription != nil {
+//                //alert the user that something went wrong
+//            } else {
+//                self.repos = repos
+//                self.tableView.reloadData()
+//            }
+//        }
         
         
 
         // Do any additional setup after loading the view.
     }
+    
+    func searchBarSearchButtonClicked(searchBar: UISearchBar) {
+        let searchString = searchBar.text
+        self.networkController.searchRepos(searchString, repoHandler: { (errorDescription, repos) -> (Void) in
+            if errorDescription != nil {
+                //alert user something went wrong
+            } else {
+                self.repos = repos
+                self.tableView.reloadData()
+            }
+        })
+        searchBar.resignFirstResponder()
+        
+    }
+
     
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

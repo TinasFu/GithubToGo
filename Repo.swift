@@ -14,7 +14,7 @@ class Repo {
     var repoFullName : String
     
     init ( repoInfo : NSDictionary ) {
-         5
+        
         
         self.repoFullName = repoInfo["full_name"] as String
         
@@ -24,9 +24,9 @@ class Repo {
         var error : NSError?
         if let JSONDictionary = NSJSONSerialization.JSONObjectWithData(rawJSONData, options: nil, error: &error) as? NSDictionary //optional downcasting
         {
-            let items = JSONDictionary["items"] as NSArray
+            let itemsArray = JSONDictionary["items"] as NSArray
             var repos = [Repo]()
-            for JSONDictionary in items {
+            for JSONDictionary in itemsArray {
                 if let repoDictionary = JSONDictionary as? NSDictionary {
                     var newRepo = Repo(repoInfo: repoDictionary)
                     repos.append(newRepo)
