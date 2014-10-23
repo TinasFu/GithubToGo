@@ -27,7 +27,7 @@
         <!--Menu-->
         <scene sceneID="hEH-OR-dqW">
             <objects>
-                <tableViewController clearsSelectionOnViewWillAppear="NO" id="DZe-4d-UiC" sceneMemberID="viewController">
+                <tableViewController clearsSelectionOnViewWillAppear="NO" id="DZe-4d-UiC" customClass="RootMenuTableViewController" customModule="GithubToGo" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="OUB-yN-aPH">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -228,6 +228,40 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="taM-cH-Dmu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1687" y="26"/>
+        </scene>
+        <!--User Detail View Controller-->
+        <scene sceneID="fWW-RA-Wti">
+            <objects>
+                <viewController storyboardIdentifier="UserDetailViewController" id="zjk-vs-w6Y" customClass="UserDetailViewController" customModule="GithubToGo" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="smr-rw-Z6a"/>
+                        <viewControllerLayoutGuide type="bottom" id="Ue7-xu-Ifl"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="jCu-LL-jeT">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="TWH-pm-pxz">
+                                <rect key="frame" x="46" y="30" width="508" height="508"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="TWH-pm-pxz" secondAttribute="height" multiplier="1:1" id="3Zf-fT-30a"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="TWH-pm-pxz" firstAttribute="top" secondItem="jCu-LL-jeT" secondAttribute="topMargin" constant="30" id="9sw-ST-5Ub"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="TWH-pm-pxz" secondAttribute="trailing" constant="30" id="P5w-8Z-yi6"/>
+                            <constraint firstItem="TWH-pm-pxz" firstAttribute="leading" secondItem="jCu-LL-jeT" secondAttribute="leadingMargin" constant="30" id="VvA-tu-tB3"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="imageView" destination="TWH-pm-pxz" id="HIh-d2-XWB"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3Rz-0V-omT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1657" y="686"/>
         </scene>
         <!--Repository View Controller-->
         <scene sceneID="7IH-Uj-Elc">

@@ -44,6 +44,7 @@ class RepositoryViewController: UIViewController, UITableViewDataSource , UISear
     
     func searchBarSearchButtonClicked(searchBar: UISearchBar) {
         let searchString = searchBar.text
+        println(searchString)
         self.networkController.searchRepos(searchString, repoHandler: { (errorDescription, repos) -> (Void) in
             if errorDescription != nil {
                 //alert user something went wrong

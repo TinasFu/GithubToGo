@@ -10,8 +10,11 @@ import UIKit
 
 class UserViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UISearchBarDelegate {
     
+    
     var networkController : NetworkController!
     var users : [User]?
+    
+    var origin : CGRect?
     
     @IBOutlet weak var collectionView: UICollectionView!
 
@@ -70,6 +73,31 @@ class UserViewController: UIViewController, UICollectionViewDataSource, UICollec
         searchBar.resignFirstResponder()
         
     }
+    
+    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        // Grab the attributes of the tapped upon cell
+        let attributes = collectionView.layoutAttributesForItemAtIndexPath(indexPath)
+        
+        // Grab the onscreen rectangle of the tapped upon cell, relative to the collection view
+        let origin = self.view.convertRect(attributes!.frame, fromView: collectionView)
+        
+        // Save our starting location as the tapped upon cells frame
+        self.origin = origin
+        
+        // Find tapped image, initialize next view controller
+        let image = self.users?[indexPath.row].avatarImage
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let viewController = storyboard.instantiateViewControllerWithIdentifier("UserDetailViewController") as UserDetailViewController
+        
+        // Set image and reverseOrigin properties on next view controller
+        viewController.image = image
+        viewController.reverseOrigin = self.origin!
+        
+        // Trigger a normal push animations; let navigation controller take over.
+        self.navigationController?.pushViewController(viewController, animated: true)
+
+    }
+    
 
     
 }

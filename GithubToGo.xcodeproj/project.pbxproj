@@ -21,6 +21,10 @@
 		926018B619F8419200A9DF54 /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926018B519F8419200A9DF54 /* UserViewController.swift */; };
 		926018B819F843D000A9DF54 /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926018B719F843D000A9DF54 /* UserCell.swift */; };
 		926018BA19F84B7C00A9DF54 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926018B919F84B7C00A9DF54 /* User.swift */; };
+		926018BC19F871E300A9DF54 /* UserDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926018BB19F871E300A9DF54 /* UserDetailViewController.swift */; };
+		926018BF19F878FB00A9DF54 /* ShowImageAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926018BE19F878FB00A9DF54 /* ShowImageAnimator.swift */; };
+		926018C119F8792400A9DF54 /* HideImageAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926018C019F8792400A9DF54 /* HideImageAnimator.swift */; };
+		926018C519F884B900A9DF54 /* RootMenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926018C419F884B900A9DF54 /* RootMenuTableViewController.swift */; };
 		92669DED19F5BF120010C5DE /* RepoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92669DEC19F5BF120010C5DE /* RepoCell.swift */; };
 		92669DF319F5C3710010C5DE /* RepoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92669DF219F5C3710010C5DE /* RepoCell.xib */; };
 /* End PBXBuildFile section */
@@ -54,6 +58,10 @@
 		926018B519F8419200A9DF54 /* UserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
 		926018B719F843D000A9DF54 /* UserCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
 		926018B919F84B7C00A9DF54 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		926018BB19F871E300A9DF54 /* UserDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDetailViewController.swift; sourceTree = "<group>"; };
+		926018BE19F878FB00A9DF54 /* ShowImageAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowImageAnimator.swift; sourceTree = "<group>"; };
+		926018C019F8792400A9DF54 /* HideImageAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HideImageAnimator.swift; sourceTree = "<group>"; };
+		926018C419F884B900A9DF54 /* RootMenuTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootMenuTableViewController.swift; sourceTree = "<group>"; };
 		92669DEC19F5BF120010C5DE /* RepoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepoCell.swift; sourceTree = "<group>"; };
 		92669DF219F5C3710010C5DE /* RepoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = RepoCell.xib; path = ../RepoCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -98,6 +106,7 @@
 		920053BF19F56BCE009093F9 /* GithubToGo */ = {
 			isa = PBXGroup;
 			children = (
+				926018BD19F878AC00A9DF54 /* Animatorr */,
 				920053EA19F5A815009093F9 /* Controller Layer */,
 				920053E819F5A7FF009093F9 /* View Layer */,
 				920053E719F5A7C9009093F9 /* Model Layer */,
@@ -164,9 +173,20 @@
 				920053ED19F5AAFA009093F9 /* NetworkController.swift */,
 				920053EB19F5A8F3009093F9 /* RepositoryViewController.swift */,
 				926018B519F8419200A9DF54 /* UserViewController.swift */,
+				926018BB19F871E300A9DF54 /* UserDetailViewController.swift */,
+				926018C419F884B900A9DF54 /* RootMenuTableViewController.swift */,
 			);
 			name = "Controller Layer";
 			path = ..;
+			sourceTree = "<group>";
+		};
+		926018BD19F878AC00A9DF54 /* Animatorr */ = {
+			isa = PBXGroup;
+			children = (
+				926018BE19F878FB00A9DF54 /* ShowImageAnimator.swift */,
+				926018C019F8792400A9DF54 /* HideImageAnimator.swift */,
+			);
+			name = Animatorr;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -272,11 +292,15 @@
 			files = (
 				920053F019F5B2DD009093F9 /* Repo.swift in Sources */,
 				926018B619F8419200A9DF54 /* UserViewController.swift in Sources */,
+				926018BC19F871E300A9DF54 /* UserDetailViewController.swift in Sources */,
 				920053C819F56BCE009093F9 /* ViewController.swift in Sources */,
 				920053C319F56BCE009093F9 /* AppDelegate.swift in Sources */,
 				920053EE19F5AAFA009093F9 /* NetworkController.swift in Sources */,
+				926018C119F8792400A9DF54 /* HideImageAnimator.swift in Sources */,
+				926018C519F884B900A9DF54 /* RootMenuTableViewController.swift in Sources */,
 				920053C619F56BCE009093F9 /* GithubToGo.xcdatamodeld in Sources */,
 				920053E619F56FEF009093F9 /* SplitContainerViewController.swift in Sources */,
+				926018BF19F878FB00A9DF54 /* ShowImageAnimator.swift in Sources */,
 				920053EC19F5A8F3009093F9 /* RepositoryViewController.swift in Sources */,
 				926018B819F843D000A9DF54 /* UserCell.swift in Sources */,
 				92669DED19F5BF120010C5DE /* RepoCell.swift in Sources */,
