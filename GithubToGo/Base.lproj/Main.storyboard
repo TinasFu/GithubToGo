@@ -106,6 +106,9 @@
                                                 <constraint firstItem="Bl5-vK-zGB" firstAttribute="leading" secondItem="cuq-li-f18" secondAttribute="leadingMargin" id="qGu-HR-61s"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="SoI-GT-asK" kind="showDetail" id="HVO-Ky-zJP"/>
+                                        </connections>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -203,23 +206,13 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="du7-ga-wo5" firstAttribute="top" secondItem="V26-fo-xpS" secondAttribute="bottom" id="6bA-YX-4Ns"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="3A6-TX-fMl" secondAttribute="trailing" id="7M8-DL-ish"/>
                             <constraint firstItem="V26-fo-xpS" firstAttribute="top" secondItem="3A6-TX-fMl" secondAttribute="bottom" id="bGH-XK-hdd"/>
                             <constraint firstAttribute="trailing" secondItem="3A6-TX-fMl" secondAttribute="trailing" id="gzb-Or-Ino"/>
                             <constraint firstItem="V26-fo-xpS" firstAttribute="leading" secondItem="YQ8-bB-3co" secondAttribute="leading" id="hxE-Ws-9B2"/>
-                            <constraint firstItem="3A6-TX-fMl" firstAttribute="top" secondItem="Bly-EJ-bzI" secondAttribute="bottom" id="hyg-nk-V4R"/>
                             <constraint firstItem="3A6-TX-fMl" firstAttribute="leading" secondItem="YQ8-bB-3co" secondAttribute="leading" id="iM9-gQ-Vfv"/>
                             <constraint firstItem="3A6-TX-fMl" firstAttribute="top" secondItem="Bly-EJ-bzI" secondAttribute="bottom" id="n0l-VF-HTf"/>
                             <constraint firstAttribute="trailing" secondItem="V26-fo-xpS" secondAttribute="trailing" id="n55-Vw-heN"/>
-                            <constraint firstItem="3A6-TX-fMl" firstAttribute="leading" secondItem="YQ8-bB-3co" secondAttribute="leadingMargin" id="ylS-Rg-R02"/>
                         </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="7M8-DL-ish"/>
-                                <exclude reference="hyg-nk-V4R"/>
-                                <exclude reference="ylS-Rg-R02"/>
-                            </mask>
-                        </variation>
                     </view>
                     <connections>
                         <outlet property="collectionView" destination="V26-fo-xpS" id="cGW-dY-CR0"/>
@@ -232,7 +225,7 @@
         <!--User Detail View Controller-->
         <scene sceneID="fWW-RA-Wti">
             <objects>
-                <viewController storyboardIdentifier="UserDetailViewController" id="zjk-vs-w6Y" customClass="UserDetailViewController" customModule="GithubToGo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="UserDetailViewController" extendedLayoutIncludesOpaqueBars="YES" id="zjk-vs-w6Y" customClass="UserDetailViewController" customModule="GithubToGo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="smr-rw-Z6a"/>
                         <viewControllerLayoutGuide type="bottom" id="Ue7-xu-Ifl"/>
@@ -241,27 +234,71 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cCw-Sa-Bbz">
+                                <rect key="frame" x="279" y="382" width="42" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="TWH-pm-pxz">
-                                <rect key="frame" x="46" y="30" width="508" height="508"/>
+                                <rect key="frame" x="150" y="80" width="300" height="300"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="TWH-pm-pxz" secondAttribute="height" multiplier="1:1" id="3Zf-fT-30a"/>
+                                    <constraint firstAttribute="width" constant="200" id="UjJ-pi-3E8"/>
+                                    <constraint firstAttribute="height" constant="300" id="h4m-DQ-h0Y"/>
+                                    <constraint firstAttribute="width" constant="300" id="h6t-6s-IFY"/>
+                                    <constraint firstAttribute="height" constant="200" id="vzG-gX-qb7"/>
                                 </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="UjJ-pi-3E8"/>
+                                        <exclude reference="vzG-gX-qb7"/>
+                                    </mask>
+                                </variation>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="TWH-pm-pxz" firstAttribute="top" secondItem="jCu-LL-jeT" secondAttribute="topMargin" constant="30" id="9sw-ST-5Ub"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="TWH-pm-pxz" secondAttribute="trailing" constant="30" id="P5w-8Z-yi6"/>
-                            <constraint firstItem="TWH-pm-pxz" firstAttribute="leading" secondItem="jCu-LL-jeT" secondAttribute="leadingMargin" constant="30" id="VvA-tu-tB3"/>
+                            <constraint firstItem="cCw-Sa-Bbz" firstAttribute="top" secondItem="TWH-pm-pxz" secondAttribute="bottom" constant="2" id="2Bu-U7-qRi"/>
+                            <constraint firstItem="TWH-pm-pxz" firstAttribute="top" secondItem="jCu-LL-jeT" secondAttribute="topMargin" constant="80" id="9sw-ST-5Ub"/>
+                            <constraint firstAttribute="centerX" secondItem="TWH-pm-pxz" secondAttribute="centerX" id="Fxg-ge-Dbh"/>
+                            <constraint firstAttribute="centerX" secondItem="cCw-Sa-Bbz" secondAttribute="centerX" id="MKb-Hd-4Pg"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="TWH-pm-pxz" secondAttribute="trailing" constant="20" id="P5w-8Z-yi6"/>
+                            <constraint firstItem="TWH-pm-pxz" firstAttribute="leading" secondItem="jCu-LL-jeT" secondAttribute="leadingMargin" constant="20" id="VvA-tu-tB3"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="P5w-8Z-yi6"/>
+                                <exclude reference="VvA-tu-tB3"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
                         <outlet property="imageView" destination="TWH-pm-pxz" id="HIh-d2-XWB"/>
+                        <outlet property="nameLabelView" destination="cCw-Sa-Bbz" id="Crw-ST-gYV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3Rz-0V-omT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1657" y="686"/>
+        </scene>
+        <!--Profile View Controller-->
+        <scene sceneID="MiE-QS-i3F">
+            <objects>
+                <viewController id="SoI-GT-asK" customClass="ProfileViewController" customModule="GithubToGo" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="AdK-ng-QgU"/>
+                        <viewControllerLayoutGuide type="bottom" id="lev-ec-dQb"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="hGM-gM-Gs2">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Vlj-hQ-Q4d" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1619" y="1222"/>
         </scene>
         <!--Repository View Controller-->
         <scene sceneID="7IH-Uj-Elc">
@@ -301,12 +338,31 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="searchBar" destination="Yej-eW-eOu" id="r91-ja-Qnj"/>
                         <outlet property="tableView" destination="lma-8G-HGc" id="dpe-ob-Wsa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iFO-sf-MrB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1687" y="-682"/>
+            <point key="canvasLocation" x="1335" y="-834"/>
+        </scene>
+        <!--Web View Controller-->
+        <scene sceneID="h33-W8-w6b">
+            <objects>
+                <viewController storyboardIdentifier="WEBVIEW" id="G5p-qK-eWC" customClass="WebViewController" customModule="GithubToGo" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="pCt-Gd-OIA"/>
+                        <viewControllerLayoutGuide type="bottom" id="oCB-bW-Ud5"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="07v-9R-kd6">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="V6j-CD-H6t" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2038" y="-834"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="BvM-CN-e8t">

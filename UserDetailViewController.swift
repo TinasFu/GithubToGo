@@ -11,12 +11,15 @@ import UIKit
 class UserDetailViewController: UIViewController {
 
     @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var nameLabelView: UILabel!
     var reverseOrigin: CGRect?
     var image: UIImage?
+    var loginName: String?
   
     override func viewDidLoad() {
         super.viewDidLoad()
         self.imageView.image = self.image
+        self.nameLabelView.text = self.loginName
         // Do any additional setup after loading the view.
     }
 

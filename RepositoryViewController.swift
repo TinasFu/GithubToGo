@@ -9,16 +9,19 @@
 import UIKit
 
 
-class RepositoryViewController: UIViewController, UITableViewDataSource , UISearchBarDelegate {
+class RepositoryViewController: UIViewController, UITableViewDataSource , UISearchBarDelegate, UITableViewDelegate {
 
     var networkController : NetworkController!
     var repos : [Repo]?
+    
     @IBOutlet weak var tableView: UITableView!
     
+    @IBOutlet weak var searchBar: UISearchBar!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.dataSource = self
+        self.searchBar.delegate = self
         
         //register RepoCell.xib, set indentifier to "REPO_CELL" which we use later in tableview func
         self.tableView.registerNib(UINib(nibName: "RepoCell", bundle: NSBundle.mainBundle()), forCellReuseIdentifier: "REPO_CELL")
@@ -57,6 +60,12 @@ class RepositoryViewController: UIViewController, UITableViewDataSource , UISear
         searchBar.resignFirstResponder()
         
     }
+    
+    func searchBar(searchBar: UISearchBar, shouldChangeTextInRange range: NSRange, replacementText text: String) -> Bool {
+        println(text)
+        return text.validate()
+        //if the text we typed in the search bar matches the regular expression, add the text and replace the previous text in range
+    }
 
     
     
@@ -78,6 +87,16 @@ class RepositoryViewController: UIViewController, UITableViewDataSource , UISear
         return cell
         
     }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let repo = self.repos?[indexPath.row]
+        let destinationVC = self.storyboard?.instantiateViewControllerWithIdentifier("WEBVIEW") as WebViewController
+        destinationVC.repo = repo
+        
+        self.navigationController?.pushViewController(destinationVC, animated: true)
+    }
+    
+    
 
 
 }

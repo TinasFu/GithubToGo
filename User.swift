@@ -40,6 +40,16 @@ class User {
         }
         return nil
     }
+    
+    class func parseJSONDataIntoProfile(rawJSONData: NSData) -> User? {
+        var error: NSError?
+        if let userDictionary = NSJSONSerialization.JSONObjectWithData(rawJSONData, options: nil, error: &error) as? NSDictionary
+        {
+            var user = User (userInfo: userDictionary)
+            return user
+        }
+        return nil
+    }
 
     
     

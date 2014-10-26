@@ -26,6 +26,9 @@ class UserViewController: UIViewController, UICollectionViewDataSource, UICollec
 
 
         // Do any additional setup after loading the view.
+//        let layout = UICollectionViewFlowLayout()
+//        //layout.itemSize = CGSizeMake(280, 280)
+//        self.collectionView.collectionViewLayout = layout
     }
 
     
@@ -74,23 +77,33 @@ class UserViewController: UIViewController, UICollectionViewDataSource, UICollec
         
     }
     
+    func searchBar(searchBar: UISearchBar, shouldChangeTextInRange range: NSRange, replacementText text: String) -> Bool {
+        println(text)
+        return text.validate()
+        //if the text we typed in the search bar matches the regular expression, add the text and replace the previous text in range
+    }
+
+    
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         // Grab the attributes of the tapped upon cell
         let attributes = collectionView.layoutAttributesForItemAtIndexPath(indexPath)
         
         // Grab the onscreen rectangle of the tapped upon cell, relative to the collection view
-        let origin = self.view.convertRect(attributes!.frame, fromView: collectionView)
+        let origin = self.view.convertRect(attributes!.frame, fromView: self.collectionView)
         
         // Save our starting location as the tapped upon cells frame
         self.origin = origin
+        println(self.origin)
         
         // Find tapped image, initialize next view controller
         let image = self.users?[indexPath.row].avatarImage
+        let name = self.users?[indexPath.row].loginName
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let viewController = storyboard.instantiateViewControllerWithIdentifier("UserDetailViewController") as UserDetailViewController
         
         // Set image and reverseOrigin properties on next view controller
         viewController.image = image
+        viewController.loginName = name
         viewController.reverseOrigin = self.origin!
         
         // Trigger a normal push animations; let navigation controller take over.

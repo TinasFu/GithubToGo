@@ -13,10 +13,13 @@ class SplitContainerViewController: UIViewController, UISplitViewControllerDeleg
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
+        
         //every viewcontroller has a child view controller array
         //make a reference CV, cast the first child to UISplitViewContoller so we can apply the delegate
         let splitVC = self.childViewControllers[0] as UISplitViewController
         splitVC.delegate = self
+        
 
         // Do any additional setup after loading the view.
     }

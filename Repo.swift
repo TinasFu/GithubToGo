@@ -12,11 +12,13 @@ import UIKit
 class Repo {
     
     var repoFullName : String
+    var repoURL : String
     
     init ( repoInfo : NSDictionary ) {
         
         
         self.repoFullName = repoInfo["full_name"] as String
+        self.repoURL = repoInfo["html_url"] as String
         
     }
     

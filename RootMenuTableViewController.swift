@@ -22,11 +22,13 @@ class RootMenuTableViewController: UITableViewController, UINavigationController
         // This is called whenever during all navigation operations
         // Only return a custom animator for two view controller types
         
+        // we apply the animator when it's from fromVC, we should also set a condition of which controller is the toVC. otherwise when we go back from UserViewController the program will crash.
         if let userViewController = fromVC as? UserViewController {
-            let animator = ShowImageAnimator()
-            animator.origin = userViewController.origin
-            
-            return animator
+            if let userDetailViewController = toVC as? UserDetailViewController {
+                let animator = ShowImageAnimator()
+                animator.origin = userViewController.origin
+                return animator
+            }
         }
         else if let userDetailViewController = fromVC as? UserDetailViewController {
             let animator = HideImageAnimator()

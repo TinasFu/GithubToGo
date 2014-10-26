@@ -200,19 +200,69 @@ class NetworkController {
     func downloadUserImage(user : User, completionHandler : (image : UIImage) -> (Void)){
         //make sure to use imageQueue so we are not using the main thread
         self.imageQueue.addOperationWithBlock { () -> Void in
-            
-            println(user.avatarURL!)
-            let url = NSURL(string: user.avatarURL!)
-
-            var imageData = NSData(contentsOfURL: url)// network call
-            var avatarImage = UIImage(data: imageData)
-            user.avatarImage = avatarImage
-            NSOperationQueue.mainQueue().addOperationWithBlock({ () -> Void in
-                completionHandler(image: avatarImage)
+            self.imageQueue.addOperationWithBlock({ () -> Void in
+                println(user.avatarURL!)
+                let url = NSURL(string: user.avatarURL!)
+                
+                var imageData = NSData(contentsOfURL: url)// network call
+                var avatarImage = UIImage(data: imageData)
+                user.avatarImage = avatarImage
+                NSOperationQueue.mainQueue().addOperationWithBlock({ () -> Void in
+                    completionHandler(image: avatarImage)
+                })
             })
-            
         }
+    }
+    
+    func fetchUserProfile(profileHandler: ( errorDescription: String?, user: User?) -> (Void)) {
         
+        let userURL = "https://api.github.com/user"
+        let url = NSURL(string: userURL)
+        println("\(url)")
+        let dataTask = self.mySession?.dataTaskWithURL(
+            url,
+            completionHandler: { (data, response, error) -> Void in
+                self.handleProfileResponse(
+                    data,
+                    response: response,
+                    error: error,
+                    profileHandler)
+            }
+        )
+        
+        // run the task by calling resume()
+        dataTask?.resume()
+    }
+    
+    func handleProfileResponse(
+        data: NSData!,
+        response: NSURLResponse!,
+        error: NSError!,
+        profileHandler: (errorDescription: String?, user: User?) -> (Void)) -> Void {
+            
+            if let httpResponse = response as? NSHTTPURLResponse {
+                switch httpResponse.statusCode {
+                case 200...204:
+                    
+                    let user = User.parseJSONDataIntoProfile(data)
+                    
+                    // Add it back to main thread
+                    NSOperationQueue.mainQueue().addOperationWithBlock({ () -> Void in
+                        profileHandler(errorDescription: nil, user: user)
+                    })
+                    
+                case 400...499:
+                    println("This is the clients fault.")
+                    println(error?.description);
+                    profileHandler(errorDescription: "This is your fault", user: nil)
+                case 500...599:
+                    println("This is the servers fault.")
+                    profileHandler(errorDescription: "Our servers are currently down", user: nil)
+                default:
+                    println("bad response? \(httpResponse.statusCode)")
+                }
+                
+            }
     }
 
 

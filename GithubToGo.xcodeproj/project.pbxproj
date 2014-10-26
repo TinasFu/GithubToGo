@@ -25,8 +25,11 @@
 		926018BF19F878FB00A9DF54 /* ShowImageAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926018BE19F878FB00A9DF54 /* ShowImageAnimator.swift */; };
 		926018C119F8792400A9DF54 /* HideImageAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926018C019F8792400A9DF54 /* HideImageAnimator.swift */; };
 		926018C519F884B900A9DF54 /* RootMenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926018C419F884B900A9DF54 /* RootMenuTableViewController.swift */; };
+		926018C719F9693700A9DF54 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926018C619F9693700A9DF54 /* WebViewController.swift */; };
+		926018C919F99AC500A9DF54 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926018C819F99AC500A9DF54 /* StringExtension.swift */; };
 		92669DED19F5BF120010C5DE /* RepoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92669DEC19F5BF120010C5DE /* RepoCell.swift */; };
 		92669DF319F5C3710010C5DE /* RepoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92669DF219F5C3710010C5DE /* RepoCell.xib */; };
+		92C1B24219FB102400FA9433 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92C1B24119FB102400FA9433 /* ProfileViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,8 +65,11 @@
 		926018BE19F878FB00A9DF54 /* ShowImageAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowImageAnimator.swift; sourceTree = "<group>"; };
 		926018C019F8792400A9DF54 /* HideImageAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HideImageAnimator.swift; sourceTree = "<group>"; };
 		926018C419F884B900A9DF54 /* RootMenuTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootMenuTableViewController.swift; sourceTree = "<group>"; };
+		926018C619F9693700A9DF54 /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
+		926018C819F99AC500A9DF54 /* StringExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 		92669DEC19F5BF120010C5DE /* RepoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepoCell.swift; sourceTree = "<group>"; };
 		92669DF219F5C3710010C5DE /* RepoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = RepoCell.xib; path = ../RepoCell.xib; sourceTree = "<group>"; };
+		92C1B24119FB102400FA9433 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,6 +156,7 @@
 			children = (
 				920053EF19F5B2DD009093F9 /* Repo.swift */,
 				926018B919F84B7C00A9DF54 /* User.swift */,
+				926018C819F99AC500A9DF54 /* StringExtension.swift */,
 			);
 			name = "Model Layer";
 			path = ..;
@@ -175,6 +182,8 @@
 				926018B519F8419200A9DF54 /* UserViewController.swift */,
 				926018BB19F871E300A9DF54 /* UserDetailViewController.swift */,
 				926018C419F884B900A9DF54 /* RootMenuTableViewController.swift */,
+				926018C619F9693700A9DF54 /* WebViewController.swift */,
+				92C1B24119FB102400FA9433 /* ProfileViewController.swift */,
 			);
 			name = "Controller Layer";
 			path = ..;
@@ -296,8 +305,10 @@
 				920053C819F56BCE009093F9 /* ViewController.swift in Sources */,
 				920053C319F56BCE009093F9 /* AppDelegate.swift in Sources */,
 				920053EE19F5AAFA009093F9 /* NetworkController.swift in Sources */,
+				92C1B24219FB102400FA9433 /* ProfileViewController.swift in Sources */,
 				926018C119F8792400A9DF54 /* HideImageAnimator.swift in Sources */,
 				926018C519F884B900A9DF54 /* RootMenuTableViewController.swift in Sources */,
+				926018C919F99AC500A9DF54 /* StringExtension.swift in Sources */,
 				920053C619F56BCE009093F9 /* GithubToGo.xcdatamodeld in Sources */,
 				920053E619F56FEF009093F9 /* SplitContainerViewController.swift in Sources */,
 				926018BF19F878FB00A9DF54 /* ShowImageAnimator.swift in Sources */,
@@ -305,6 +316,7 @@
 				926018B819F843D000A9DF54 /* UserCell.swift in Sources */,
 				92669DED19F5BF120010C5DE /* RepoCell.swift in Sources */,
 				926018BA19F84B7C00A9DF54 /* User.swift in Sources */,
+				926018C719F9693700A9DF54 /* WebViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
